@@ -1,0 +1,29 @@
+.wrapper {
+  border: 3px solid #ff9225;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  user-select: none;
+}
+.logoImg {
+  width: 67px;
+  height: 95px;
+}
+.iconImg {
+  width: 15px;
+  height: 15px;
+}
+.iconsLink {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.inptIcon {
+  width: 15px;
+  height: 15px;
+  padding: 0 5px;
+}
+.inpt {
+  height: 25px;
+  border: none;
+}
