@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import classes from './Modal.module.scss'
 import classNames from 'classnames'
 const cities = [
@@ -25,7 +25,15 @@ interface IModal {
   setVisible: (visible: boolean) => void
 }
 
+
+
 const Modal: FC<IModal> = ({ visible, setVisible }) => {
+
+const [search, setSearch] =useState('')
+
+const filtredCity = cities.filter(city=>{
+  return city.toLowerCase().includes(search.toLowerCase()) 
+})
   return (
     <div
       className={classNames(
@@ -38,9 +46,11 @@ const Modal: FC<IModal> = ({ visible, setVisible }) => {
         type="text"
         placeholder="Например: Москва"
         className={classes.modalInput}
+        onChange={e=> setSearch(e.target.value)}
+
       />
       <div className={classes.cityTags}>
-        {cities.map((city) => (
+        {filtredCity.map((city) => (
           <div className={classes.cityTag}>{city}</div>
         ))}
       </div>
