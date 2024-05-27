@@ -13,4 +13,59 @@ html {
 body {
   margin: 0;
   background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  font-family: 'Alegreya Sans', sans-serif;
+}
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contentContainer {
+  margin: 20px;
+}
+.bookItems {
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  grid-auto-rows: 300px;
+}
+.bookImgs {
+  display: flex;
+  justify-content: center;
+}
+.bookImg {
+  width: 125px;
+  height: 180px;
+}
+.bookmark {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  right: 0;
+}
+
+.bookImg:hover {
+  box-shadow: 10px 10px 5px rgb(217, 216, 216);
+}
+.bookItemsBtns {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.bookItem {
+  padding: 10px;
+  border: 1px solid rgb(186, 184, 184);
+  border-right: 0.5px solid rgb(186, 184, 184);
+  background-color: #ffffff;
+  position: relative;
+}
+.itemBtn {
+  border: none;
+  font-size: 45px;
+  background-color: transparent;
+}
+.itemBtnActive {
+  color: #bbbaba;
 }

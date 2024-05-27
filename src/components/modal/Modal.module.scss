@@ -1,0 +1,36 @@
+.modalContent {
+  display: none;
+}
+.modalContentActive {
+  z-index: 10;
+  top: 200px;
+  position: fixed;
+  width: 600px;
+  background-color: #ffffff;
+  border: 1px solid #d2d0d0;
+  padding: 40px;
+  display: block;
+}
+.modalTitle {
+  margin: 5px;
+}
+.modalInput {
+  width: 100%;
+  height: 50px;
+  margin: 10px;
+}
+.cityTags {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cityTag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 5px;
+  cursor: pointer;
+  user-select: none;
+}

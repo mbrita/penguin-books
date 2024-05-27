@@ -1,29 +1,43 @@
-.wrapper {
-  border: 3px solid #ff9225;
+.navWrapper {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
-  user-select: none;
+  border-bottom: 1px solid rgb(143, 142, 142);
 }
-.logoImg {
-  width: 67px;
-  height: 95px;
+
+.navLogo {
+  width: 236px;
 }
-.iconImg {
-  width: 15px;
-  height: 15px;
+
+.navContent {
+  display: flex;
+  flex-direction: column;
 }
-.iconsLink {
+
+.citySelector {
+  font-size: 16px;
+  border-bottom: 1px solid rgb(143, 142, 142);
+  color: #555;
+  cursor: pointer;
+}
+
+.navLinksContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navLink {
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: black;
+  font-size: 18px;
+  padding: 0 15px;
+  margin: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-weight: 700;
 }
-.inptIcon {
-  width: 15px;
-  height: 15px;
-  padding: 0 5px;
-}
-.inpt {
-  height: 25px;
-  border: none;
+
+.navLink:hover {
+  background-color: #f0f0f0;
 }
