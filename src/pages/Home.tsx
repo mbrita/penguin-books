@@ -18,6 +18,7 @@ function Home() {
   const [activeBtn, setACtiveBtn] = useState(false)
   const [visible, setVisible] = useState<boolean>(false)
 
+
   const popularBookApi = async () => {
     const responce = await axios(
       'https://www.googleapis.com/books/v1/volumes?q=subject:fiction&orderBy=relevance&key=AIzaSyBTpPuZir6oCiyUril5eBdKo0_dr91yAh0'
@@ -70,9 +71,9 @@ function Home() {
 
   return (
     <div className={classes.pageContainer}>
-      <Nav visible={visible} setVisible={setVisible} />
+      <Nav  visible={visible} setVisible={setVisible} />
       <SearchField />
-      <Modal visible={visible} setVisible={setVisible} />
+      {/* <Modal visible={visible} setVisible={setVisible} /> */}
       <div className={classes.contentContainer}>
         <div className={classes.bookItemsBtns}>
           <button

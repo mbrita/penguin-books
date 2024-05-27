@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom'
 import Logo from '../../assets/nav/logoOG.png'
 import NavLinks from './NavLinks'
 import classes from './Nav.module.scss'
+import Modal from '../modal/Modal'
 
 interface INav {
   visible: boolean
   setVisible: (visible: boolean) => void
 }
-const Nav: FC<INav> = ({ visible, setVisible }) => {
+
+const Nav: FC<INav> = ({ visible, setVisible}) => {
+
+const [selectCity, setSelectCity] = useState<string>('Санкт-Петербург')
+
+
   return (
     <div className={classes.navWrapper}>
       <div>
@@ -19,7 +25,7 @@ const Nav: FC<INav> = ({ visible, setVisible }) => {
           className={classes.citySelector}
           onClick={() => setVisible(!visible)}
         >
-          Здесь можно выбрать город
+          {selectCity} 
         </div>
 
         <div className={classes.navLinksContainer}>
@@ -30,6 +36,7 @@ const Nav: FC<INav> = ({ visible, setVisible }) => {
           ))}
         </div>
       </div>
+      <Modal selectCity={selectCity} setSelectCity={setSelectCity} visible={visible} setVisible={setVisible} /> 
     </div>
   )
 }
