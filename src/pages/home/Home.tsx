@@ -8,11 +8,7 @@ import Bookmark from '../../assets/contentItem/bookmark.svg'
 import ArrowRight from '../../assets/contentItem/arrowRight.png'
 import ArrowLeft from '../../assets/contentItem/arrowLeft.png'
 import SearchField from '../../components/searchField/SearchField'
-import Modal from '../../components/modal/Modal'
-import Footer from '../../components/footer/Footer'
-import { title } from 'process'
-import Context from '../Context'
-import { Value } from 'sass'
+
 
 function Home() {
   const [books, setBooks] = useState<any[]>([])
@@ -22,7 +18,7 @@ function Home() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [activeBtn, setACtiveBtn] = useState(false)
   const [visible, setVisible] = useState<boolean>(false)
-
+  
   const popularBookApi = async () => {
     const responce = await axios(
       'https://www.googleapis.com/books/v1/volumes?q=subject:fiction&orderBy=relevance&key=AIzaSyBTpPuZir6oCiyUril5eBdKo0_dr91yAh0'
@@ -73,10 +69,9 @@ function Home() {
     showNewBooks()
   }
 
-  const value = 'что-то'
 
   return (
-    <Context.Provider value={Value}>
+
       <div className={classes.pageContainer}>
         <Nav visible={visible} setVisible={setVisible} />
         <div className={classes.searchField}>
@@ -110,7 +105,7 @@ function Home() {
               <div className={classes.bookItem} key={i}>
                 <img src={Bookmark} alt="" className={classes.bookmark} />
                 <div className={classes.bookImgs}>
-                  <Link to="/book">
+                  <Link to={`/book/${book.id}`}>
                     <img
                       src={book.volumeInfo.imageLinks.thumbnail}
                       alt=""
@@ -126,7 +121,7 @@ function Home() {
         </div>
         {/* <Footer/> */}
       </div>
-    </Context.Provider>
+  
   )
 }
 
