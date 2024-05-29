@@ -8,6 +8,7 @@ import ArrowRight from '../assets/contentItem/arrowRight.png'
 import ArrowLeft from '../assets/contentItem/arrowLeft.png'
 import SearchField from '../components/searchField/SearchField'
 import Modal from '../components/modal/Modal'
+import Footer from '../components/footer/Footer'
 
 function Home() {
   const [books, setBooks] = useState<any[]>([])
@@ -72,8 +73,7 @@ function Home() {
   return (
     <div className={classes.pageContainer}>
       <Nav  visible={visible} setVisible={setVisible} />
-      <SearchField />
-      {/* <Modal visible={visible} setVisible={setVisible} /> */}
+      <div className={classes.searchField}>      <SearchField /></div>
       <div className={classes.contentContainer}>
         <div className={classes.bookItemsBtns}>
           <button
@@ -114,6 +114,7 @@ function Home() {
           ))}
         </div>
       </div>
+      {/* <Footer/> */}
     </div>
   )
 }

@@ -4,6 +4,7 @@ import Logo from '../../assets/nav/logoOG.png'
 import NavLinks from './NavLinks'
 import classes from './Nav.module.scss'
 import Modal from '../modal/Modal'
+import SearchField from '../../components/searchField/SearchField'
 
 interface INav {
   visible: boolean
