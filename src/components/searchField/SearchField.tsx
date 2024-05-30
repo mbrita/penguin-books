@@ -5,7 +5,7 @@ import classes from './SearchField.module.scss'
 import Basket from '../../assets/searchField/basket.png'
 import Bookmark from '../../assets/searchField/bookmark.svg'
 import Person from '../../assets/searchField/person.png'
-
+import { Link } from 'react-router-dom'
 const SearchField=()=>  {
 
 const [searchBooks, setSearchBooks] = useState<string>('')
@@ -32,7 +32,9 @@ useEffect(() => {
 
 const filtredBooks = searchBooks.trim() !== '' ?
   popularBooks.filter(book =>
-    book.volumeInfo.title.toLowerCase().includes(searchBooks.toLowerCase())
+    book.volumeInfo.title.toLowerCase().includes(searchBooks.toLowerCase())||
+    book.volumeInfo.authors?.some((author: string)=> author.toLocaleLowerCase().includes(searchBooks.toLowerCase()))  
+
   ) :
   popularBooks;
   
@@ -55,9 +57,9 @@ const filtredBooks = searchBooks.trim() !== '' ?
           <p>Loading...</p>
         ) : (
           searchBooks.length > 0 && filtredBooks.map((book: any, index: number) => (
-            <div className={classes.bookSearchItem} key={index}>
+            <Link to={`/book/${book.id}`} className={classes.bookSearchItem} key={book.id}>
               <img src={book.volumeInfo.imageLinks?.thumbnail} alt=''  />
-              <h3>{book.volumeInfo.title}</h3></div>
+              <h3>{book.volumeInfo.title}</h3></Link>
           ))
         )}</div></div>
       </div>

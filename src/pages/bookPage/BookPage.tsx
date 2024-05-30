@@ -29,7 +29,12 @@ const BookPage: React.FC = () => {
         <Nav visible={visible} setVisible={setVisible} />
         <SearchField />
         <div className={classes.bookPageContent}>
-        <div>{selectedBook?.volumeInfo.title}</div>
+          <h1>{selectedBook?.volumeInfo.title}</h1>
+          <h2>Автор: {selectedBook?.volumeInfo.authors}</h2>
+           <div> <img src= {selectedBook?.volumeInfo.imageLinks?.thumbnail} alt="" className={classes.bpImg}/></div>
+          <p dangerouslySetInnerHTML={{__html: selectedBook?.volumeInfo.description || ''}}  className={classes.bpDesc}></p>
+
+
         </div>
       </div>
   )

@@ -18,9 +18,9 @@ const [selectCity, setSelectCity] = useState<string>('Санкт-Петербу�
 
   return (
     <div className={classes.navWrapper}>
-      <div>
+      <Link to='/'>
         <img src={Logo} alt="Logo" className={classes.navLogo} />
-      </div>
+      </Link>
       <div className={classes.navContent}>
         <div
           className={classes.citySelector}
