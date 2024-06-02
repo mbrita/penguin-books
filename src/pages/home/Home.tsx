@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Nav from '../../components/nav/Nav'
 import classes from '../home/Home.module.scss'
 import axios from 'axios'
@@ -8,7 +8,7 @@ import Bookmark from '../../assets/contentItem/bookmark.svg'
 import ArrowRight from '../../assets/contentItem/arrowRight.png'
 import ArrowLeft from '../../assets/contentItem/arrowLeft.png'
 import SearchField from '../../components/searchField/SearchField'
-
+import { FavoriteBookContext } from '../../App'
 
 function Home() {
   const [books, setBooks] = useState<any[]>([])
@@ -18,7 +18,7 @@ function Home() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [activeBtn, setACtiveBtn] = useState(false)
   const [visible, setVisible] = useState<boolean>(false)
-  
+
   const popularBookApi = async () => {
     const responce = await axios(
       'https://www.googleapis.com/books/v1/volumes?q=subject:fiction&orderBy=relevance&key=AIzaSyBTpPuZir6oCiyUril5eBdKo0_dr91yAh0'
@@ -69,59 +69,68 @@ function Home() {
     showNewBooks()
   }
 
+  const { favoriteBook, setFavoriteBook } = useContext(FavoriteBookContext)
+
+  const createIdArray = (book: any) => {
+    if (!favoriteBook.includes(book)) {
+      const updatedFavoriteBook = [...favoriteBook, book]
+      setFavoriteBook(updatedFavoriteBook)
+      console.log(updatedFavoriteBook)
+    }
+  }
 
   return (
-
-      <div className={classes.pageContainer}>
-        <Nav visible={visible} setVisible={setVisible} />
-        <div className={classes.searchField}>
-          <SearchField />
-        </div>
-        <div className={classes.contentContainer}>
-          <div className={classes.bookItemsBtns}>
-            <button
-              onClick={handleClick}
-              className={classNames(
-                classes.itemBtn,
-                !activeBtn && classes.itemBtnActive
-              )}
-            >
-              Новинки
-            </button>
-            <button className={classes.itemBtn} onClick={showPopularBooks}>
-              Хиты
-            </button>
-            <div>
-              <button className={classes.itemBtn} onClick={handleBack}>
-                <img src={ArrowLeft} alt="" />
-              </button>
-              <button className={classes.itemBtn} onClick={handleNext}>
-                <img src={ArrowRight} alt="" />
-              </button>
-            </div>
-          </div>
-          <div className={classes.bookItems}>
-            {visibleBooks.map((book: any, i: number) => (
-              <div className={classes.bookItem} key={i}>
-                <img src={Bookmark} alt="" className={classes.bookmark} />
-                <div className={classes.bookImgs}>
-                  <Link to={`/book/${book.id}`}>
-                    <img
-                      src={book.volumeInfo.imageLinks.thumbnail}
-                      alt=""
-                      className={classes.bookImg}
-                    />
-                  </Link>
-                </div>
-                <h5>{book.volumeInfo.authors}</h5>
-                <h3>{book.volumeInfo.title}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-        {/* <Footer/> */}
+    <div className={classes.pageContainer}>
+      <Nav visible={visible} setVisible={setVisible} />
+      <div className={classes.searchField}>
+        <SearchField />
       </div>
-  
+      <div className={classes.contentContainer}>
+        <div className={classes.bookItemsBtns}>
+          <button
+            onClick={handleClick}
+            className={classNames(
+              classes.itemBtn,
+              !activeBtn && classes.itemBtnActive
+            )}
+          >
+            Новинки
+          </button>
+          <button className={classes.itemBtn} onClick={showPopularBooks}>
+            Хиты
+          </button>
+          <div>
+            <button className={classes.itemBtn} onClick={handleBack}>
+              <img src={ArrowLeft} alt="" />
+            </button>
+            <button className={classes.itemBtn} onClick={handleNext}>
+              <img src={ArrowRight} alt="" />
+            </button>
+          </div>
+        </div>
+        <div className={classes.bookItems}>
+          {visibleBooks.map((book: any, i: number) => (
+            <div className={classes.bookItem} key={i}>
+              <div onClick={() => createIdArray(book)}>
+                <img src={Bookmark} alt="" className={classes.bookmark} />
+              </div>
+              <div className={classes.bookImgs}>
+                <Link to={`/book/${book.id}`}>
+                  <img
+                    src={book.volumeInfo.imageLinks.thumbnail}
+                    alt=""
+                    className={classes.bookImg}
+                  />
+                </Link>
+              </div>
+              <h5>{book.volumeInfo.authors}</h5>
+              <h3>{book.volumeInfo.title}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* <Footer/> */}
+    </div>
   )
 }
 
