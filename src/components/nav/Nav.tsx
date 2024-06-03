@@ -11,14 +11,12 @@ interface INav {
   setVisible: (visible: boolean) => void
 }
 
-const Nav: FC<INav> = ({ visible, setVisible}) => {
-
-const [selectCity, setSelectCity] = useState<string>('Санкт-Петербург')
-
+const Nav: FC<INav> = ({ visible, setVisible }) => {
+  const [selectCity, setSelectCity] = useState<string>('Санкт-Петербург')
 
   return (
     <div className={classes.navWrapper}>
-      <Link to='/'>
+      <Link to="/">
         <img src={Logo} alt="Logo" className={classes.navLogo} />
       </Link>
       <div className={classes.navContent}>
@@ -26,7 +24,7 @@ const [selectCity, setSelectCity] = useState<string>('Санкт-Петербу�
           className={classes.citySelector}
           onClick={() => setVisible(!visible)}
         >
-          {selectCity} 
+          {selectCity}
         </div>
 
         <div className={classes.navLinksContainer}>
@@ -37,7 +35,12 @@ const [selectCity, setSelectCity] = useState<string>('Санкт-Петербу�
           ))}
         </div>
       </div>
-      <Modal selectCity={selectCity} setSelectCity={setSelectCity} visible={visible} setVisible={setVisible} /> 
+      <Modal
+        selectCity={selectCity}
+        setSelectCity={setSelectCity}
+        visible={visible}
+        setVisible={setVisible}
+      />
     </div>
   )
 }

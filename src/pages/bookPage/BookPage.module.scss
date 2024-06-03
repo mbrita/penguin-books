@@ -3,11 +3,12 @@
   padding: 20px;
 }
 .pageWrapper {
-  width: 1400px;
+  max-width: 1920px;
+  width: 100%;
 }
-.bpImg{
+.bpImg {
   height: 400px;
 }
-.bpDesc{
+.bpDesc {
   font-size: 20px;
 }

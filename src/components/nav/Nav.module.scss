@@ -4,7 +4,7 @@
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid rgb(143, 142, 142);
-  z-index: 11;
+  z-index: 1;
 }
 
 .navLogo {
@@ -37,6 +37,7 @@
   border-radius: 5px;
   transition: background-color 0.3s;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .navLink:hover {

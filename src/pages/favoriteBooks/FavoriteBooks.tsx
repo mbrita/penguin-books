@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
+import classes from './FavoriteBooks.module.scss'
 import SearchField from '../../components/searchField/SearchField'
 import Nav from '../../components/nav/Nav'
 import axios from 'axios'
@@ -10,7 +11,7 @@ function FavoriteBooks() {
   const { favoriteBook } = useContext(FavoriteBookContext)
   console.log(favoriteBook)
   return (
-    <div>
+    <div className={classes.favBooksWrapper}>
       <Nav visible={visible} setVisible={setVisible} />
       <SearchField />
       <h1>Мои любимые книги</h1>

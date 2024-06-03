@@ -64,11 +64,6 @@ function Home() {
   }
   const visibleBooks = books.slice(currentIndex, currentIndex + 4)
 
-  const handleClick = () => {
-    setACtiveBtn(!activeBtn)
-    showNewBooks()
-  }
-
   const { favoriteBook, setFavoriteBook } = useContext(FavoriteBookContext)
 
   const createIdArray = (book: any) => {
@@ -87,15 +82,7 @@ function Home() {
       </div>
       <div className={classes.contentContainer}>
         <div className={classes.bookItemsBtns}>
-          <button
-            onClick={handleClick}
-            className={classNames(
-              classes.itemBtn,
-              !activeBtn && classes.itemBtnActive
-            )}
-          >
-            Новинки
-          </button>
+          <button className={classNames(classes.itemBtn)}>Новинки</button>
           <button className={classes.itemBtn} onClick={showPopularBooks}>
             Хиты
           </button>

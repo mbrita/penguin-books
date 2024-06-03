@@ -2,7 +2,6 @@
   display: flex;
   border-bottom: 1px solid rgb(143, 142, 142);
   height: 52px;
-  z-index: 100;
 }
 .SearchFieldBtn {
   width: 477px;
@@ -18,10 +17,11 @@
   width: 879px;
   height: 51.2px;
   font-size: 18px;
+  outline: none;
+  border: none;
 }
 .bookSearch {
   background-color: #f0f0f0;
-  z-index: 10;
   max-height: 400px;
   overflow: scroll;
   overflow-x: hidden;
@@ -30,6 +30,7 @@
 .bookSearchItem {
   border: 1px solid #757070;
   margin: 5px;
+  cursor: pointer;
 }
 .bookSearchItem:hover {
   background-color: #ebe8e8;
