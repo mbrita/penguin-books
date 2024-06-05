@@ -5,10 +5,19 @@ import axios from 'axios'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import Bookmark from '../../assets/contentItem/bookmark.svg'
+import Cart from '../../assets/cart/cart.svg'
 import ArrowRight from '../../assets/contentItem/arrowRight.png'
 import ArrowLeft from '../../assets/contentItem/arrowLeft.png'
 import SearchField from '../../components/searchField/SearchField'
 import { FavoriteBookContext } from '../../App'
+import { MyCart } from '../../App'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
+import { Swiper as SwiperType } from 'swiper'
 
 function Home() {
   const [books, setBooks] = useState<any[]>([])
@@ -65,6 +74,7 @@ function Home() {
   const visibleBooks = books.slice(currentIndex, currentIndex + 4)
 
   const { favoriteBook, setFavoriteBook } = useContext(FavoriteBookContext)
+  const { cart, setCart } = useContext(MyCart)
 
   const createIdArray = (book: any) => {
     if (!favoriteBook.includes(book)) {
@@ -72,6 +82,10 @@ function Home() {
       setFavoriteBook(updatedFavoriteBook)
       console.log(updatedFavoriteBook)
     }
+  }
+  const createCartArr = (book: any) => {
+    const updatedCart = [...cart, book]
+    setCart(updatedCart)
   }
 
   return (
@@ -95,11 +109,24 @@ function Home() {
             </button>
           </div>
         </div>
-        <div className={classes.bookItems}>
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          spaceBetween={50}
+          slidesPerView={1}
+          navigation={{ clickable: true }}
+          onSwiper={(swiper: SwiperType) => console.log(swiper)}
+          onSlideChange={() => console.log('slide change')}
+          className={classes.bookItems}
+        >
           {visibleBooks.map((book: any, i: number) => (
-            <div className={classes.bookItem} key={i}>
-              <div onClick={() => createIdArray(book)}>
-                <img src={Bookmark} alt="" className={classes.bookmark} />
+            <SwiperSlide key={i}>
+              <div className={classes.imgs}>
+                <img
+                  src={Bookmark}
+                  alt="Bookmark"
+                  className={classes.bookmark}
+                  onClick={() => createIdArray(book)}
+                />
               </div>
               <div className={classes.bookImgs}>
                 <Link to={`/book/${book.id}`}>
@@ -112,11 +139,24 @@ function Home() {
               </div>
               <h5>{book.volumeInfo.authors}</h5>
               <h3>{book.volumeInfo.title}</h3>
-            </div>
+              <h3>
+                {book?.saleInfo?.retailPrice?.amount
+                  ? book.saleInfo.retailPrice.amount
+                  : 'Не для продажи'}
+                {book?.saleInfo?.retailPrice?.currencyCode
+                  ? book.saleInfo.retailPrice.currencyCode
+                  : ''}
+              </h3>
+              <img
+                src={Cart}
+                alt="Cart"
+                className={classes.cart}
+                onClick={() => createCartArr(book)}
+              />
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
-      {/* <Footer/> */}
     </div>
   )
 }

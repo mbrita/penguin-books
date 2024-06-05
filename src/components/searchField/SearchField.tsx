@@ -78,9 +78,11 @@ const SearchField = () => {
           </div>
         </div>
         <div className={classes.icons}>
-          <button className={classes.iconsBtn}>
-            <img src={Basket} alt="" className={classes.iconImg} />
-          </button>
+          <Link to="/cart" className={classes.iconsBtn}>
+            <button className={classes.iconsBtn}>
+              <img src={Basket} alt="" className={classes.iconImg} />
+            </button>
+          </Link>
           <Link to="/favbooks">
             <button className={classes.iconsBtn}>
               <img src={Bookmark} alt="" className={classes.iconImg} />

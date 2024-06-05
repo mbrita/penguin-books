@@ -2,14 +2,12 @@ import React, { useState, useContext, useEffect } from 'react'
 import classes from './FavoriteBooks.module.scss'
 import SearchField from '../../components/searchField/SearchField'
 import Nav from '../../components/nav/Nav'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
 import { FavoriteBookContext } from '../../App'
 
 function FavoriteBooks() {
   const [visible, setVisible] = useState<boolean>(false)
   const { favoriteBook } = useContext(FavoriteBookContext)
-  console.log(favoriteBook)
+
   return (
     <div className={classes.favBooksWrapper}>
       <Nav visible={visible} setVisible={setVisible} />
@@ -32,7 +30,7 @@ function FavoriteBooks() {
             </div>
           ))
         ) : (
-          <p>Загрузка...</p>
+          <p>Нет любимых книг...</p>
         )}
       </div>
     </div>

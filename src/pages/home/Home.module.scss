@@ -33,9 +33,9 @@ body {
   margin: 20px;
 }
 .bookItems {
-  display: grid;
-  grid-template-columns: repeat(4, 250px);
-  grid-auto-rows: 300px;
+  display: flex;
+  justify-content: center;
+  width: 300px;
 }
 .bookImgs {
   display: flex;
@@ -44,13 +44,6 @@ body {
 .bookImg {
   width: 125px;
   height: 180px;
-}
-.bookmark {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  top: 0;
-  right: 0;
 }
 
 .bookImg:hover {
@@ -75,4 +68,18 @@ body {
 }
 .itemBtnActive {
   color: #bbbaba;
+}
+
+.bookmark {
+  position: absolute;
+  width: 40px;
+  height: auto;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.cart {
+  width: 40px;
+  height: auto;
+  cursor: pointer;
 }
