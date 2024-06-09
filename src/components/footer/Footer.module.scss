@@ -1,12 +1,16 @@
 .footerWrapper {
   background-color: #f2eedc;
   width: 100%;
+  padding: 20px;
 }
+
 .footerImgs {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
+
 .footerImg img {
-  width: 547px;
+  width: auto;
   height: 462px;
 }

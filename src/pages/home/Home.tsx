@@ -12,18 +12,20 @@ import SearchField from '../../components/searchField/SearchField'
 import { FavoriteBookContext } from '../../App'
 import { MyCart } from '../../App'
 import Carousel from '../../components/carousel/Carousel'
+import Footer from '../../components/footer/Footer'
 
 function Home() {
   const [visible, setVisible] = useState<boolean>(false)
 
   return (
     <div className={classes.pageContainer}>
-      <Nav visible={visible} setVisible={setVisible} />
+     <div className={classes.nav}><Nav visible={visible} setVisible={setVisible}  /></div> 
       <div className={classes.searchField}>
         <SearchField />
       </div>
       <div className={classes.contentContainer}></div>
       <Carousel />
+      <Footer/>
     </div>
   )
 }

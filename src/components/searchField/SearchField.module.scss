@@ -2,9 +2,11 @@
   display: flex;
   border-bottom: 1px solid rgb(143, 142, 142);
   height: 52px;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 .SearchFieldBtn {
-  width: 477px;
   background-color: black;
   color: white;
   display: flex;
@@ -12,45 +14,94 @@
   align-items: center;
   font-size: 22px;
   cursor: pointer;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.inptWrapper {
+  flex-grow: 1;
+  box-sizing: border-box;
+  width: 100%;
 }
 .SearchFieldInpt {
-  width: 879px;
-  height: 51.2px;
+  height: 100%;
+  flex: 1;
   font-size: 18px;
   outline: none;
   border: none;
 }
+
 .bookSearch {
-  background-color: #f0f0f0;
+  background-color: #f5f0f5;
   max-height: 400px;
-  overflow: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
-  width: 879px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
 }
+
 .bookSearchItem {
-  border: 1px solid #757070;
-  margin: 5px;
-  cursor: pointer;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
+
 .bookSearchItem:hover {
-  background-color: #ebe8e8;
+  background-color: #e4e2e7;
 }
+
+.bookSearchItem img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.bookSearchItem h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
 .icons {
   display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  flex: 1;
 }
+
 .iconsBtn {
   background-color: transparent;
   border: none;
   cursor: pointer;
   border-right: none;
-  width: 142px;
+  box-sizing: border-box;
+  margin: 0 20px;
 }
+
 .iconsBtn:hover {
   background-color: #f0f0f0;
 }
+
 .iconsBtn:active {
   background-color: #f0f0f0;
 }
+
 .iconImg {
   width: 40px;
+  height: auto;
+}
+
+@media (max-width: 1020px) {
+  .iconsBtn {
+    margin: 0 5px;
+  }
 }

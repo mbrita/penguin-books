@@ -12,25 +12,30 @@ function FavoriteBooks() {
     <div className={classes.favBooksWrapper}>
       <Nav visible={visible} setVisible={setVisible} />
       <SearchField />
-      <h1>Мои любимые книги</h1>
-      <div>
+      <h1 className={classes.title}>Мои любимые книги</h1>
+      <div className={classes.booksContainer}>
         {favoriteBook.length > 0 ? (
           favoriteBook.map((book: any, index: number) => (
-            <div key={index} className="book">
+            <div key={index} className={classes.book}>
               {book.volumeInfo?.imageLinks && (
                 <img
                   src={book.volumeInfo.imageLinks.thumbnail}
                   alt="Обложка книги"
+                  className={classes.bookCover}
                 />
               )}
-              {book.volumeInfo?.title && <h2>{book.volumeInfo.title}</h2>}
+              {book.volumeInfo?.title && (
+                <h2 className={classes.bookTitle}>{book.volumeInfo.title}</h2>
+              )}
               {book.volumeInfo.authors && (
-                <p>Авторы: {book.volumeInfo.authors.join(', ')}</p>
+                <p className={classes.bookAuthors}>
+                  Авторы: {book.volumeInfo.authors.join(', ')}
+                </p>
               )}
             </div>
           ))
         ) : (
-          <p>Нет любимых книг...</p>
+          <p className={classes.noBooks}>Нет любимых книг...</p>
         )}
       </div>
     </div>

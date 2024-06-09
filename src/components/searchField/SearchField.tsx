@@ -45,12 +45,11 @@ const SearchField = () => {
       : popularBooks
 
   return (
-    <>
       <div className={classes.SearchFieldWrapper}>
         <div className={classes.SearchFieldBtn}>
           <p>Каталог</p>
         </div>
-        <div>
+        <div className={classes.inptWrapper }>
           <input
             type="text"
             placeholder="Поиск на полках"
@@ -93,7 +92,6 @@ const SearchField = () => {
           </button>
         </div>
       </div>
-    </>
   )
 }
 
