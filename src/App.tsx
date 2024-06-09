@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './index.css'
+import './App.css'
 import Home from './pages/home/Home'
 import BookPage from './pages/bookPage/BookPage'
 import FavoriteBooks from './pages/favoriteBooks/FavoriteBooks'
