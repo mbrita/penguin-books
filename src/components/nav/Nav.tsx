@@ -1,4 +1,5 @@
 import React, { useState, useEffect, FC } from 'react'
+import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import Logo from '../../assets/nav/logoOG.png'
 import NavLinks from './NavLinks'
@@ -7,12 +8,13 @@ import Modal from '../modal/Modal'
 import SearchField from '../../components/searchField/SearchField'
 
 interface INav {
-  visible: boolean
-  setVisible: (visible: boolean) => void
+  activeMenu: boolean
+  setActiveMenu: any
 }
 
-const Nav: FC<INav> = ({ visible, setVisible }) => {
+const Nav: FC<INav> = ({activeMenu,setActiveMenu}) => {
   const [selectCity, setSelectCity] = useState<string>('Санкт-Петербург')
+  const [visible, setVisible] = useState<boolean>(false)
 
   return (
     <div className={classes.navWrapper}>
@@ -27,7 +29,7 @@ const Nav: FC<INav> = ({ visible, setVisible }) => {
           {selectCity}
         </div>
 
-        <div className={classes.navLinksContainer}>
+        <div className={classNames(classes.navLinksContainer, !activeMenu &&  classes.navLinksContainerActive)}>
           {NavLinks.map((link, i) => (
             <Link to={link.link} className={classes.navLink} key={i}>
               {link.title}
@@ -35,6 +37,7 @@ const Nav: FC<INav> = ({ visible, setVisible }) => {
           ))}
         </div>
       </div>
+
       <Modal
         selectCity={selectCity}
         setSelectCity={setSelectCity}

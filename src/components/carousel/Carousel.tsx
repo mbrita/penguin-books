@@ -7,7 +7,6 @@ import Star from '../../assets/contentItem/star.svg'
 import Cart from '../../assets/contentItem/cart.svg'
 import ArrowRight from '../../assets/contentItem/arrowRight.png'
 import ArrowLeft from '../../assets/contentItem/arrowLeft.png'
-import SearchField from '../searchField/SearchField'
 import { FavoriteBookContext } from '../../App'
 import { MyCart } from '../../App'
 

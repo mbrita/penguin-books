@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import classes from './Modal.module.scss'
 import classNames from 'classnames'
+
 const cities = [
  {name: 'Москва',  adress: 'Москва, Литейный пр., 57'},
  {name: 'Казань',  adress: 'Казань, Литейный пр., 57'},

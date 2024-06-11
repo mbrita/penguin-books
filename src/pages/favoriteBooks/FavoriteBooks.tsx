@@ -1,22 +1,21 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext} from 'react'
 import classes from './FavoriteBooks.module.scss'
-import SearchField from '../../components/searchField/SearchField'
-import Nav from '../../components/nav/Nav'
+import { Header } from '../../components/Header/Header'
 import { FavoriteBookContext } from '../../App'
+import { Link } from 'react-router-dom'
 
 function FavoriteBooks() {
-  const [visible, setVisible] = useState<boolean>(false)
+
   const { favoriteBook } = useContext(FavoriteBookContext)
 
   return (
     <div className={classes.favBooksWrapper}>
-      <Nav visible={visible} setVisible={setVisible} />
-      <SearchField />
+      <Header/>
       <h1 className={classes.title}>Мои любимые книги</h1>
       <div className={classes.booksContainer}>
         {favoriteBook.length > 0 ? (
           favoriteBook.map((book: any, index: number) => (
-            <div key={index} className={classes.book}>
+            <Link to={`/book/${book.id}`} key={index} className={classes.book}>
               {book.volumeInfo?.imageLinks && (
                 <img
                   src={book.volumeInfo.imageLinks.thumbnail}
@@ -32,7 +31,7 @@ function FavoriteBooks() {
                   Авторы: {book.volumeInfo.authors.join(', ')}
                 </p>
               )}
-            </div>
+            </Link>
           ))
         ) : (
           <p className={classes.noBooks}>Нет любимых книг...</p>

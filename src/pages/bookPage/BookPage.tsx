@@ -5,11 +5,12 @@ import classes from '../bookPage/BookPage.module.scss'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Ibook } from '../../types/types'
+import { Header } from '../../components/Header/Header'
 
 const BookPage: React.FC = () => {
-  const [visible, setVisible] = useState<boolean>(false)
   const [selectedBook, setSelectedBook] = useState<Ibook>()
   const { id } = useParams()
+
 
   const selectedBooks = async () => {
     const responce = await axios(
@@ -28,8 +29,7 @@ const BookPage: React.FC = () => {
 
   return (
     <div className={classes.pageWrapper}>
-      <Nav visible={visible} setVisible={setVisible} />
-      <SearchField />
+     <Header/>
       <div className={classes.bookPageContent}>
         <h1>{selectedBook?.volumeInfo?.title}</h1>
         <h2>Автор: {selectedBook?.volumeInfo?.authors}</h2>

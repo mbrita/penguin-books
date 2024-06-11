@@ -1,16 +1,22 @@
 import React, { FC, useState, useEffect } from 'react'
 import axios from 'axios'
-import classNames from 'classnames'
 import classes from './SearchField.module.scss'
 import Basket from '../../assets/searchField/basket.png'
 import Bookmark from '../../assets/searchField/bookmark.svg'
 import Person from '../../assets/searchField/person.png'
 import { Link } from 'react-router-dom'
-const SearchField = () => {
+
+interface IFs {
+  activeMenu: boolean
+  setActiveMenu: any
+}
+
+
+const SearchField: FC<IFs> = ({ activeMenu,setActiveMenu}) =>{
   const [searchBooks, setSearchBooks] = useState<string>('')
   const [popularBooks, setPopularBooks] = useState<any[]>([])
   const [loading, setLoading] = useState<boolean>(false)
-
+  
   const popularBookApi = async () => {
     try {
       setLoading(true)
@@ -46,7 +52,7 @@ const SearchField = () => {
 
   return (
       <div className={classes.SearchFieldWrapper}>
-        <div className={classes.SearchFieldBtn}>
+        <div onClick={()=>setActiveMenu(!activeMenu)}  className={classes.SearchFieldBtn}>
           <p>Каталог</p>
         </div>
         <div className={classes.inptWrapper }>
