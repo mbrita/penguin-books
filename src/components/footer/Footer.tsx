@@ -7,7 +7,6 @@ import FooteRight from '../../assets/footer/footer02.png'
 const Footer = ()=>{
     return (
         <div className={classes.footerWrapper}>
-            <div>Здесь будет контент</div>
             <div className={classes.footerImgs}>
                 <div className={classes.footerImg} >              
                   <img src={FooteLeft} alt="" /></div>

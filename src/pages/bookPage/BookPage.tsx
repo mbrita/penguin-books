@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react'
-import Nav from '../../components/nav/Nav'
-import SearchField from '../../components/searchField/SearchField'
 import classes from '../bookPage/BookPage.module.scss'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
@@ -61,10 +59,9 @@ const BookPage: React.FC = () => {
           className={classes.bpDesc}
         ></p>
       </div>
-      <div className={classes.pageBtns}> <button className={classes.pageBtn}>Читать отрывок</button>
+      <div className={classes.pageBtns}>
       <button className={classes.pageBtn} onClick={()=>createCartArr(selectedBook)}>Купить</button>
-      <button className={classes.pageBtn} onClick={()=>createIdArray (selectedBook)}>Избранное</button>
-      <div className={classes.bookSnippet}>{selectedBook?.searchInfo?.textSnippet || 'отрывок не найден'} </div></div>
+      <button className={classes.pageBtn} onClick={()=>createIdArray (selectedBook)}>Избранное</button></div>
       </>
 
     </div>

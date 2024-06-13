@@ -23,20 +23,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
-
-.booksContainerGrid {
-  width: 100%;
-  max-width: 100px;
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, auto);
-}
-
-.booksContainerGrid .bookItem:nth-child(1) {
-  grid-row: span 2;
-}
-
 .bookItem {
   display: flex;
   flex-direction: column;

@@ -141,8 +141,8 @@ const Carousel: React.FC = () => {
           <img src={ArrowRight} alt="" />
         </button>
       </div>
-      <div className={classes.booksContainerGrid}>
-        {popularBooks.slice(currentPopularIndex,currentPopularIndex + 3).map((book, i) => (
+      <div className={classes.booksContainer}>
+        {popularBooks.slice(currentPopularIndex,currentPopularIndex + 4).map((book, i) => (
           <div key={i} className={classNames(classes.bookItem)}>
             <Link to={`/book/${book.id}`} className={classes.link}>
               <img
