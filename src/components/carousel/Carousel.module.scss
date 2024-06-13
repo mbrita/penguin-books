@@ -25,7 +25,8 @@
 }
 
 .booksContainerGrid {
-  max-width: 100%;
+  width: 100%;
+  max-width: 100px;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(2, 1fr);

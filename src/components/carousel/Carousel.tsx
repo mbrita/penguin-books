@@ -9,6 +9,7 @@ import ArrowRight from '../../assets/contentItem/arrowRight.png'
 import ArrowLeft from '../../assets/contentItem/arrowLeft.png'
 import { FavoriteBookContext } from '../../App'
 import { MyCart } from '../../App'
+import { Ticker } from '../ticker/Ticker'
 
 const Carousel: React.FC = () => {
   const [books, setBooks] = useState<any[]>([])
@@ -128,15 +129,16 @@ const Carousel: React.FC = () => {
           </div>
         ))}
       </div>
+
       <div className={classes.buttonsContainer}>
         <button className={classes.button} onClick={handleBackPopular }>
-          <img src={ArrowLeft} alt="Back" />
+          <img src={ArrowLeft} alt="" />
         </button>
         <div>
           <button className={classes.button}>Классика</button>
         </div>
         <button className={classes.button} onClick={handleNextPopular }>
-          <img src={ArrowRight} alt="Next" />
+          <img src={ArrowRight} alt="" />
         </button>
       </div>
       <div className={classes.booksContainerGrid}>

@@ -68,4 +68,7 @@ export interface Ibook {
     }
     accessViewStatus: "string"
   }
+  searchInfo: {
+    textSnippet: "any"
+  }
 }

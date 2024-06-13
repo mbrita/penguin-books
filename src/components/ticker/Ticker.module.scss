@@ -1,0 +1,25 @@
+.block{
+    height: 90px;
+    width:300px;
+    margin:0 auto;
+    background: #ffffff;
+  }
+  .block p{
+    text-align:center;
+    color:#000000;
+    font-size: 3rem;
+    text-transform: uppercase;
+    padding-top: 35px;
+    animation: text 5s infinite linear;
+    padding-left: 100%;
+    white-space: nowrap;
+  }
+  @keyframes text {
+    0%{
+      transform: translate(0, 0);
+    }
+    
+    100%{
+      transform: translate(-160%, 0);
+    }
+  }

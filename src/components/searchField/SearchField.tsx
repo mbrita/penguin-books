@@ -44,7 +44,7 @@ const SearchField: FC<IFs> = ({ activeMenu,setActiveMenu}) =>{
             book.volumeInfo.title
               .toLowerCase()
               .includes(searchBooks.toLowerCase()) ||
-            book.volumeInfo.authors?.some((author: string) =>
+              book.volumeInfo.authors?.some((author: string) =>
               author.toLocaleLowerCase().includes(searchBooks.toLowerCase())
             )
         )
